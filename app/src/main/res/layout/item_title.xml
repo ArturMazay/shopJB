@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="44dp"
+    app:cardElevation="20dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/beerzilis" />
+
+        <life.sabujak.roundedbutton.RoundedButton
+            android:id="@+id/btn_plus"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="уменьшить"
+            android:textSize="8sp"
+            app:buttonCornerRadius="85dp"
+            app:buttonGradientEndColor="@color/elou"
+            app:buttonGradientStartColor="@color/elou"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_price" />
+
+        <life.sabujak.roundedbutton.RoundedButton
+            android:id="@+id/btn_minus"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="68dp"
+            android:background="@color/white"
+            android:gravity="center"
+
+            android:text="добавить"
+            android:textSize="8sp"
+            app:buttonCornerRadius="85dp"
+            app:buttonGradientEndColor="@color/elou"
+            app:buttonGradientStartColor="@color/elou"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_plus"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="20dp"
+            android:text="Светлое нефильрованное"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:text="стоимость литра"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="100 рублей"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_price"
+            app:layout_constraintStart_toEndOf="@+id/txt_price"
+            app:layout_constraintTop_toTopOf="@+id/txt_price" />
+
+        <life.sabujak.roundedbutton.RoundedButton
+            android:id="@+id/roundedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="14dp"
+            android:text="Добавить в корзиину"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="italic"
+            app:buttonCornerRadius="55dp"
+            app:buttonGradientEndColor="@color/elou"
+            app:buttonGradientStartColor="@color/elou"
+            app:buttonRippleColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_plus"
+            app:layout_constraintVertical_bias="0.198" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

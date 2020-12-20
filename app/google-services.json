@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "240602807092",
+    "firebase_url": "https://jackbeer-fb267.firebaseio.com",
+    "project_id": "jackbeer-fb267",
+    "storage_bucket": "jackbeer-fb267.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240602807092:android:2b7df901297413dce84361",
+        "android_client_info": {
+          "package_name": "com.example.finishjb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240602807092-q6i2kar1l3eqjaaqt033n77u1ukasqvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb6-Cxs2AdUTgw6YQY67v_Hv25wEBr0rY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240602807092-q6i2kar1l3eqjaaqt033n77u1ukasqvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
