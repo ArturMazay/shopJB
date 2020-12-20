@@ -9,6 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class TitleViewModel : ViewModel() {
 
+
     private val firebaseFirestone: FirebaseFirestore = FirebaseFirestore.getInstance()
     val product: MutableLiveData<MutableList<Product>> = MutableLiveData()
     val modelLiveData: LiveData<MutableList<Product>>

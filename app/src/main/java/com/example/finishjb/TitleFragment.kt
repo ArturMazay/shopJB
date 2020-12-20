@@ -4,25 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.FirebaseDatabase
-import com.mcxtzhang.layoutmanager.swipecard.CardConfig
-import com.mcxtzhang.layoutmanager.swipecard.OverLayCardLayoutManager
-import com.mcxtzhang.layoutmanager.swipecard.RenRenCallback
 
 class TitleFragment : Fragment() {
 
     companion object {
         fun newInstance() = TitleFragment()
     }
-
+    private val onClick: OnClickTo? = null
     private lateinit var viewModel: TitleViewModel
 
     override fun onCreateView(
@@ -39,7 +31,11 @@ class TitleFragment : Fragment() {
 
 
         val rv: RecyclerView? = view.findViewById(R.id.image_list)
-        val myAdapter = MyAdapter()
+        val myAdapter = MyAdapter(onClickTo = object :OnClickTo{
+            override fun onClickAddCart() {
+                onClick?.onClickAddCart()
+            }
+        })
         rv?.adapter = myAdapter
 
         viewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
