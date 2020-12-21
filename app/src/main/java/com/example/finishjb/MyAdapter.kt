@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(private val onClickTo: OnClickTo) : RecyclerView.Adapter<MyViewHolder>() {
 
-    var data = mutableListOf<Product>()
+    var product = mutableListOf<Product>()
         set(value) {
             field = value
         }
@@ -18,13 +18,14 @@ class MyAdapter(private val onClickTo: OnClickTo) : RecyclerView.Adapter<MyViewH
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(data[position])
-        holder.itemView.setOnClickListener {
-            //val data = data[position]
-            onClickTo.onClickAddCart()
-        }
+        holder.bind(product[position])
 
+       /* holder.itemView.setOnClickListener {
+            var product = product[position]
+             //onClickTo.onClickAddCart(product)
+         }
+*/
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = product.size
 }

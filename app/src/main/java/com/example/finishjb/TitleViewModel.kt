@@ -1,13 +1,17 @@
 package com.example.finishjb
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import life.sabujak.roundedbutton.RoundedButton
 
 class TitleViewModel : ViewModel() {
+
+
 
 
     private val firebaseFirestone: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -21,7 +25,6 @@ class TitleViewModel : ViewModel() {
                 val listData = mutableListOf<Product>()
                 for (document in result) {
                     val image: String = document.getString("image") ?: ""
-                    Log.e("XXX", image)
                     val title: String = document.getString("title") ?: ""
                     val price: String = document.getString("price") ?: ""
                     val description: String = document.getString("description") ?: ""
@@ -34,5 +37,9 @@ class TitleViewModel : ViewModel() {
                 product.value = listData
             }
     }
+
+    /*fun addToCart() {
+        myRef.setValue()
+    }*/
 
 }

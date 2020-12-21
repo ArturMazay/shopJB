@@ -1,5 +1,5 @@
 package com.example.finishjb
 
 interface OnClickTo {
-    fun onClickAddCart()
+    fun onClickAddCart(product: Product)
 }
