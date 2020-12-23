@@ -1,6 +1,6 @@
 package com.example.finishjb
 
-import android.graphics.Insets.add
+
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -36,7 +36,7 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         btnAddCart.setOnClickListener {
 
-            myRef.setValue(CartModel("image","description","","jj"))
+            myRef.setValue(CartModel("image", "description", "", "jj"))
             Toast.makeText(itemView.context, "REEEEE", Toast.LENGTH_LONG).show()
         }
 

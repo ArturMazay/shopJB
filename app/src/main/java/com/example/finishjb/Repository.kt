@@ -2,29 +2,13 @@ package com.example.finishjb
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.FirebaseFirestore
 
-class TitleViewModel : ViewModel() {
-
-
-    private val repository = Repository()
-
-    fun transferToView(): LiveData<MutableList<Product>>{
-            val mutableList = MutableLiveData<MutableList<Product>>()
-            repository.loadList().observeForever { listProduct->
-                    mutableList.value=listProduct
-            }
-            return mutableList
-
-    }
+class Repository {
 
 
-    /* private val firebaseFirestone: FirebaseFirestore = FirebaseFirestore.getInstance()
-     val product: MutableLiveData<MutableList<Product>> = MutableLiveData()
-    *//* val modelLiveData: LiveData<MutableList<Product>>
-        get() = product
-
-    init {
+    fun loadList(): LiveData<MutableList<Product>> {
+        val mutableData = MutableLiveData<MutableList<Product>>()
         FirebaseFirestore.getInstance().collection("Product").get()
             .addOnSuccessListener { result ->
                 val listData = mutableListOf<Product>()
@@ -39,12 +23,10 @@ class TitleViewModel : ViewModel() {
                     )
                     listData.add(product)
                 }
-                product.value = listData
+                mutableData.value = listData
             }
-    }*//*
+             return mutableData
 
-    *//*fun addToCart() {
-        myRef.setValue()
-    }*//*
-*/
+    }
+
 }
