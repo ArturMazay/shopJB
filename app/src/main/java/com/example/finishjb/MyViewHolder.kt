@@ -7,13 +7,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.database.FirebaseDatabase
 import life.sabujak.roundedbutton.RoundedButton
 
-class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    val database = FirebaseDatabase.getInstance()
-    val myRef = database.getReference("product")
+class MyViewHolder(itemView: View,onClickTo: OnClickTo) : RecyclerView.ViewHolder(itemView) {
+    
+    private lateinit var model:Product//так? интерфейс туда положил?
 
     private val count: TextView = itemView.findViewById(R.id.tv_count)
     private val mprice: TextView = itemView.findViewById(R.id.tv_price)
@@ -28,24 +26,18 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var mCount: Int = 0
     private var mPrice: Int? = null
 
+    fun bind(model: Product) {
+        this.model=model   //так ?
 
-    fun bind(product: Product) {
-        Glide.with(itemView.context).load(product.image).into(image)
-        description.text = product.description
-        mprice.text = product.price
-
-        btnAddCart.setOnClickListener {
-
-            myRef.setValue(CartModel("image", "description", "", "jj"))
-            Toast.makeText(itemView.context, "REEEEE", Toast.LENGTH_LONG).show()
-        }
+        Glide.with(itemView.context).load(model.image).into(image)
+        description.text = model.description
+        mprice.text = model.price
 
         minus_btn.setOnClickListener {
             mCount++
             count.text = mCount.toString()
             mPrice = mCount * 76
             totalPrice.text = mPrice.toString()
-
         }
 
         plus_btn.setOnClickListener {
@@ -56,5 +48,8 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 totalPrice.text = mPrice.toString()
             } else mCount = 0
         }
+    }
+    init {
+        btnAddCart.setOnClickListener { onClickTo.onClickAddCart(model) }
     }
 }

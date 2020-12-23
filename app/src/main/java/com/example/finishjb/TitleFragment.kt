@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import life.sabujak.roundedbutton.RoundedButton
 
 class TitleFragment : Fragment() {
 
@@ -17,12 +16,11 @@ class TitleFragment : Fragment() {
     }
     private val onClick: OnClickTo? = null
     private lateinit var viewModel: TitleViewModel
-    private val btnAddCart: RoundedButton? = view?.findViewById(R.id.roundedButton)
+    //private val btnAddCart: RoundedButton? = view?.findViewById(R.id.roundedButton)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.title_fragment, container, false)
     }
 
@@ -30,17 +28,16 @@ class TitleFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
 
-
         val rv: RecyclerView? = view?.findViewById(R.id.image_list)
         val myAdapter = MyAdapter(onClickTo = object :OnClickTo{
             override fun onClickAddCart(product: Product) {
-               // viewModel.addToCart()
+                viewModel.addCart(product)
             }
         })
+
         rv?.adapter = myAdapter
 
-        viewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
-        viewModel.product.observe(viewLifecycleOwner, Observer {
+        viewModel.transferToView().observe(viewLifecycleOwner, Observer {
             it?.let {
                 myAdapter.product = it
                 myAdapter.notifyDataSetChanged()
